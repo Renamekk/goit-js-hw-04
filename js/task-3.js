@@ -1,16 +1,32 @@
-function filterArray(numbers, value) {
-  const filteredArray = [];
-  numbers.forEach(elem => {
-    elem > value ? filteredArray.push(elem) : null;
-  });
-  return filteredArray;
-}
+const profile = {
+  username: 'Jacob',
+  playTime: 300,
+  getInfo() {
+    return `${this.username} has ${this.playTime} active hours!`;
+  },
+  changeUsername(newName) {
+    this.username = newName;
+  },
+  updatePlayTime(hours) {
+    this.playTime += hours;
+  },
+};
 
 
 
-console.log('TASK-3');
-console.log(filterArray([1, 2, 3, 4, 5], 3)); 
-console.log(filterArray([1, 2, 3, 4, 5], 4)); 
-console.log(filterArray([1, 2, 3, 4, 5], 5)); 
-console.log(filterArray([12, 24, 8, 41, 76], 38)); 
-console.log(filterArray([12, 24, 8, 41, 76], 20)); 
+console.group('TASK-3');
+
+
+
+console.log(profile.getInfo()); // "Jacob has 300 active hours!"
+
+
+
+profile.changeUsername('Marco');
+console.log(profile.getInfo()); // "Marco has 300 active hours!"
+
+
+
+profile.updatePlayTime(20);
+console.log(profile.getInfo()); // "Marco has 320 active hours!"
+console.groupEnd();
